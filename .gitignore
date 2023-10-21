@@ -1,0 +1,36 @@
+# Archivos de Terraform
+*.tfstate
+*.tfstate.*backup
+*.tfvars
+
+# Archivo de configuración de Terraform para CLI
+.terraformrc
+terraform.rc
+
+# Directorio que contiene los módulos y plugins descargados
+.terraform/
+
+# Archivos de logs
+*.log
+
+# Archivos temporales
+*.tfauto*
+
+# Archivos de planos de Terraform
+*.tfplan
+*.tfplan.backup
+
+# Archivos de configuración sensibles
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# VSCode
+.vscode/
+
+# Otros
+.DS_Store
+*.swp
+*.bak
+*~

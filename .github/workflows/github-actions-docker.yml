@@ -26,6 +26,9 @@ jobs:
           - context: .
             dockerfile: ./postgres-docker/Dockerfile
             image_name: johanc29/docker-postgres
+          - context: .
+            dockerfile: ./nginx-docker/Dockerfile
+            image_name: johanc29/nginx-agenda-courier
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4

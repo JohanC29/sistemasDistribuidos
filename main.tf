@@ -57,7 +57,7 @@ resource "docker_container" "container_firewall" {
 }
 
 resource "docker_image" "image_nginx" {
-  name = "nginx:latest"
+  name = "johanc29/nginx-agenda-courier:latest"
 }
 
 resource "docker_container" "container_nginx" {
@@ -155,7 +155,7 @@ resource "docker_container" "container_backend_auth" {
 }
 
 resource "docker_image" "image_postgres" {
-  name = "postgres:latest"
+  name = "johanc29/docker-postgres:latest"
 }
 
 resource "docker_container" "container_postgres" {
@@ -167,8 +167,8 @@ resource "docker_container" "container_postgres" {
   ]
 
   ports {
-    internal = 8080
-    external = 1521
+    internal = 9876
+    external = 9876
   }
 
   networks_advanced {

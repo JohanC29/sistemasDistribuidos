@@ -19,12 +19,12 @@ Asigancion de imagenes a los componentes:
 |Aplicacion|imagen|
 |---|---|
 |Firewalls|api-firewall:latest|
-|Nginx load balancer|nginx:latest|
-|Imagen con vue js para el front|nginx:latest|
-|Backend App|johanc29/docker-mitocode-microservice:28|
-|Backend Report|johanc29/docker-mitocode-microservice:28|
-|Backend Authenticacion|johanc29/docker-mitocode-microservice:28|
-|Base de datos postgress|postgres:latest|
+|Nginx load balancer|johanc29/nginx-agenda-courier:latest|
+|Imagen con vue js para el front|johanc29/sistemas-distribuidos:latest|
+|Backend App|johanc29/sistemas-distribuidos:latest|
+|Backend Report|johanc29/sistemas-distribuidos:latest|
+|Backend Authenticacion|johanc29/sistemas-distribuidos:latest|
+|Base de datos postgress|johanc29/docker-postgres:latest|
 
 ## Configuracion archivo .tf
 

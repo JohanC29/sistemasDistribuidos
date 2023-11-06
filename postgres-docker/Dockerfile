@@ -2,7 +2,7 @@
 FROM postgres
 
 # Copia el archivo de configuración personalizado al contenedor
-COPY my-postgres.conf /etc/postgresql/postgresql.conf
+COPY postgres-docker/my-postgres.conf /etc/postgresql/postgresql.conf
 
 # Configura la contraseña de PostgreSQL
 ENV POSTGRES_PASSWORD=mysecretpassword

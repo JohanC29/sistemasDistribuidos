@@ -74,31 +74,41 @@ resource "docker_container" "container_nginx" {
   }
 }
 
+resource "docker_image" "image_sistemas_distribuidos" {
+  name = "johanc29/sistemas-distribuidos:latest"
+}
+
 resource "docker_container" "container_vuejs" {
   name  = "vuejs_container"
-  image = docker_image.image_nginx.image_id
+  image = docker_image.image_sistemas_distribuidos.image_id
 
   networks_advanced {
     name = docker_network.app_network.name
   }
 
+  env = [
+    "VAR_ENTORNO=FRONTEND",
+    "VAR_PROYECTO=FRONTEND VUE JS"
+  ]
+
   ports {
     internal = 80
-    external = 81
+    external = 8081
   }
-}
-
-resource "docker_image" "image_backend_app" {
-  name = "johanc29/docker-mitocode-microservice:28"
 }
 
 resource "docker_container" "container_backend_app" {
   name  = "backend_app_container"
-  image = docker_image.image_backend_app.image_id
+  image = docker_image.image_sistemas_distribuidos.image_id
+
+  env = [
+    "VAR_ENTORNO=BACKEND",
+    "VAR_PROYECTO=BACKEND APP"
+  ]
 
   ports {
-    internal = 9373
-    external = 8081
+    internal = 80
+    external = 8082
   }
 
   networks_advanced {
@@ -108,11 +118,16 @@ resource "docker_container" "container_backend_app" {
 
 resource "docker_container" "container_backend_report" {
   name  = "backend_report_container"
-  image = docker_image.image_backend_app.image_id
+  image = docker_image.image_sistemas_distribuidos.image_id
+
+  env = [
+    "VAR_ENTORNO=BACKEND",
+    "VAR_PROYECTO=BACKEND REPORT"
+  ]
 
   ports {
-    internal = 9373
-    external = 8082
+    internal = 80
+    external = 8084
   }
 
   networks_advanced {
@@ -122,10 +137,15 @@ resource "docker_container" "container_backend_report" {
 
 resource "docker_container" "container_backend_auth" {
   name  = "backend_auth_container"
-  image = docker_image.image_backend_app.image_id
+  image = docker_image.image_sistemas_distribuidos.image_id
+
+  env = [
+    "VAR_ENTORNO=BACKEND",
+    "VAR_PROYECTO=BACKEND AUTH"
+  ]
 
   ports {
-    internal = 9373
+    internal = 80
     external = 8083
   }
 
